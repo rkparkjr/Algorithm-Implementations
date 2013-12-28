@@ -22,3 +22,23 @@ function binary_search(arr, target) {
 
     return middle;
 }
+
+function binary_search_inplace(arr, target) {
+    if (arr.length < 1) return -1;
+    
+    var start = 0;
+    var end = arr.length -1;
+    while (end - start > 0) {
+        var middle = ~~((end - start) / 2);
+        var middle_value = arr[middle];
+        
+        if (middle_value == target) {
+            return middle;
+        }
+        if (middle_value < target) {
+            start = middle + 1;
+        } else { // (middle_value > target)
+            end = middle - 1;
+        }
+    }
+}
